@@ -16,18 +16,18 @@
 
 + config raspberry de bat VNC
 
-	    sudo raspi-config       ->   Interfacing Options > VNC and select Yes.
+      sudo raspi-config       ->   Interfacing Options > VNC and select Yes.
   
 3. cai tensorflow vao raspberry pi
 + update raspberry	
 	
       sudo apt-get update
-	    sudo apt-get dist-upgrade
+      sudo apt-get dist-upgrade
   
 + tao thu muc chua tensorflow
 
-	    mkdir tf
-	    cd tf
+      mkdir tf
+      cd tf
 
 + tai xuong tensorflow va cai dat
 
@@ -41,20 +41,20 @@
 ***lxml chứa các mô-đun C cần được biên dịch để cài đặt đúng. Tuy nhiên, việc biên dịch các mô-đun C đó cũng dựa trên việc bạn đã cài đặt một số "thư viện phát triển". Các thư viện phát triển này là các thư viện C, không phải Python và vì vậy các pip sẽ không thể tự động tải chúng từ internet và cài đặt chúng cho bạn.
 Do đó, bạn sẽ cần phải tự cài đặt các thư viện phát triển này, rất có thể là sử dụng trình quản lý gói của bạn. Trong một hệ thống Debian (như Ubuntu), đây là ...
 
-	    sudo apt-get install libxml2-dev libxslt-dev
+      sudo apt-get install libxml2-dev libxslt-dev
   
 Điều này sẽ cài đặt các thư viện phát triển libxml2 và libxslt vào hệ thống cục bộ của bạn. Nếu bạn thử lại để cài đặt lxml, bước biên dịch mô-đun C sẽ hoạt động vì bây giờ các thư viện phát triển này đã có trên hệ thống của bạn.***
 
-    	sudo pip3 install pillow lxml jupyter matplotlib cython
+      sudo pip3 install pillow lxml jupyter matplotlib cython
       sudo apt-get install python-tk
       
 + install opencv
 
-    	sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
-	    sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-	    sudo apt-get install libxvidcore-dev libx264-dev
+      sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+      sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+      sudo apt-get install libxvidcore-dev libx264-dev
       sudo apt-get install qt4-dev-tools
-	    pip3 install opencv-python
+      pip3 install opencv-python
       
 +bien dich va cai dat protobuf
       
@@ -79,18 +79,16 @@ Do đó, bạn sẽ cần phải tự cài đặt các thư viện phát triển
 
 + thiet lap cau truc tensorflow va bien pythonpath
 
-	    mkdir tensorflow1
-	    cd tensorflow1
-	    git clone --recurse-submodules https://github.com/tensorflow/models.git
-	    sudo nano ~/.bashrc (sua file bash de link duong dan tensorflow)
-
-export PYTHONPATH=$PYTHONPATH:/home/pi/tensorflow1/models/research:/home/pi/tensorflow1/models/research/slim (them vao o dong cuoi cua file bash)
- 
-	    cd /home/pi/tensorflow1/models/research (di chuyen den research cua file model)
-	    protoc object_detection/protos/*.proto --python_out=. (chuyen cacs proto name thanh 	name_pb2.py) 
-	    cd /home/pi/tensorflow1/models/research/object_detection (di chuyen de thu muc 	mau cua model)
+      mkdir tensorflow1
+      cd tensorflow1
+      git clone --recurse-submodules https://github.com/tensorflow/models.git
+      sudo nano ~/.bashrc (sua file bash de link duong dan tensorflow)
+      export PYTHONPATH=$PYTHONPATH:/home/pi/tensorflow1/models/research:/home/pi/tensorflow1/models/research/slim (them vao o dong cuoi cua file bash)
+      cd /home/pi/tensorflow1/models/research (di chuyen den research cua file model)
+      protoc object_detection/protos/*.proto --python_out=. (chuyen cacs proto name thanh 	name_pb2.py) 
+      cd /home/pi/tensorflow1/models/research/object_detection (di chuyen de thu muc 	mau cua model)
       wget http://download.tensorflow.org/models/object_detection/ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
-     	tar -xzvf ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
+      tar -xzvf ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
       
 + bat camera trong rasp-config 
  
